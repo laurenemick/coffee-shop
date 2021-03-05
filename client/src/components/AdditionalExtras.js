@@ -2,6 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { addExtra } from "../actions/extraActions";
 
+import AddIcon from "@material-ui/icons/Add";
+import { IconButton } from "@material-ui/core";
+
 const AdditionalExtras = props => {
     return (
         <div className="additional-extras">
@@ -9,9 +12,11 @@ const AdditionalExtras = props => {
             {props.additionalExtras.length ? (
                 <div>
                     {props.additionalExtras.map(extra => (
-                        <div className="additional-extra">
-                            <p>{extra.name} (+ ${extra.price})</p>
-                            <button onClick={() => props.addExtra(extra)}>Add</button>
+                        <div className="extra">
+                            <IconButton onClick={() => props.addExtra(extra)}>
+                                <AddIcon />
+                            </IconButton>
+                            <p style={{paddingLeft:"4px"}}>{extra.name} (+ ${extra.price})</p>
                         </div>
                     ))}
                 </div>

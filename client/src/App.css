@@ -129,19 +129,19 @@ table {
 }
 
 /* General Styles */
-
 * {
   box-sizing: border-box;
 }
 
 .App {
-  margin: 2%;
+  margin: 2% 8%;
 }
 
 html {
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
+  background-color: black;
 }
 
 h2 {
@@ -152,20 +152,18 @@ h4 {
   font-size: 1.6em;
 }
 
-button, p {
+p {
   font-size: 1.2em;
   line-height: 1.4;
 }
 
-
 /* MenuItem */
-
 .item {
-  border: 2px solid blue;
+  background-color:honeydew;
+  border-radius: 6px;
   display: flex;
   justify-content: center;
   padding: 2%;
-  margin-bottom: 6%;
 }
 
 .item-img {
@@ -175,9 +173,8 @@ button, p {
 }
 
 .item-content {
-  border: 2px solid pink;
   width: 70%;
-  padding: 5% 0 5% 5%;
+  padding-left: 5%;
 }
 
 .item-header {
@@ -187,15 +184,45 @@ button, p {
   padding-bottom: 5%;
 }
 
-
 /* AdditionalExtra */
-
-.additional-extra {
-  display: flex;
-}  
-
 /* AddedExtras */
 .extra {
   display: flex;
   align-items: center;
+  background-color:honeydew;
+  border-radius: 6px;
+  margin: 1% 0;
+}
+
+/* Total */
+.total {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3%;
+  background-color:honeydew;
+  padding: 2%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    margin: 3%;
+  }
+  .item-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+  }
+  .item {
+    margin: 8% 0;
+  }
+  .item-content {
+    padding: 5%;
+  }
+  .total {
+    padding: 6% 3%;
+  }
 }
