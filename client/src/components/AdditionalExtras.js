@@ -12,8 +12,8 @@ const AdditionalExtras = props => {
             {props.additionalExtras.length ? (
                 <div>
                     {props.additionalExtras.map(extra => (
-                        <div className="extra">
-                            <IconButton onClick={() => props.addExtra(extra)}>
+                        <div className="extra" onClick={() => props.addExtra(extra)}>
+                            <IconButton>
                                 <AddIcon />
                             </IconButton>
                             <p style={{paddingLeft:"4px"}}>{extra.name} (+ ${extra.price})</p>

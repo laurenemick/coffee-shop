@@ -200,7 +200,7 @@ p {
   justify-content: flex-end;
   margin-top: 3%;
   background-color:honeydew;
-  padding: 2%;
+  padding: 2% 8%;
   left: 0;
   bottom: 0;
   right: 0;
@@ -223,6 +223,6 @@ p {
     padding: 5%;
   }
   .total {
-    padding: 6% 3%;
+    padding: 6% 5%;
   }
 }
