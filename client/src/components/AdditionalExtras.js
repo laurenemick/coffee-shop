@@ -4,7 +4,7 @@ import { addExtra } from "../actions/extraActions";
 
 const AdditionalExtras = props => {
     return (
-        <div>
+        <div className="additional-extras">
             <h4>Extras</h4>
             {props.additionalExtras.length ? (
                 <div>

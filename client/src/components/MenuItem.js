@@ -10,8 +10,8 @@ const MenuItem = props => {
         </div>
         <div className="item-content">
           <div className="item-header">
-            <h2>{props.coffee.name}</h2>
-            <p>${props.coffee.price}</p>
+            <h4>{props.coffee.name}</h4>
+            <h4>${props.coffee.price}</h4>
           </div>
           <p>{props.coffee.size}</p>
           <p>{props.coffee.shots}</p>
