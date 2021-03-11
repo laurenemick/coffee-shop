@@ -157,7 +157,7 @@ p {
   line-height: 1.4;
 }
 
-/* MenuItem */
+/* Cart */
 .item {
   background-color:honeydew;
   border-radius: 6px;
@@ -178,20 +178,24 @@ p {
 }
 
 .item-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding-bottom: 5%;
 }
 
-/* AdditionalExtra */
-/* AddedExtras */
+.added-extra, .item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.added-extra {
+  padding-top: 2%;
+}
+
 .extra {
   display: flex;
   align-items: center;
   background-color:honeydew;
   border-radius: 6px;
-  margin: 1% 0;
 }
 
 /* Total */

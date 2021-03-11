@@ -14,7 +14,7 @@ const AdditionalExtras = props => {
                     <div>
                         {
                             props.additionalExtras.map(extra => (
-                                <div className="extra" key={extra} onClick={() => props.addExtra(props.id, extra)}>
+                                <div className="extra" key={extra.id} onClick={() => props.addExtra(props.id, extra)}>
                                     <IconButton>
                                         <AddIcon />
                                     </IconButton>
