@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 
 import { addToCart } from "../actions/extraActions"
 
+// import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+// import { IconButton } from "@material-ui/core";
+
 const Menu = props => {
 
     const handleClick = id => {
@@ -26,7 +29,10 @@ const Menu = props => {
                             <p>{item.shots}</p>
                             <p>{item.calories}</p>
                             <div className="item-btn">
-                                <button onClick={() => {handleClick(item.id)}}>Add</button>
+                                <button className="btn" onClick={() => {handleClick(item.id)}}>Add</button>
+                                {/* <IconButton onClick={() => {handleClick(item.id)}}>
+                                    <AddCircleOutlineIcon fontSize="large" />
+                                </IconButton> */}
                             </div>
                         </div>
                     </div>

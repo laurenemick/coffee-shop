@@ -7,7 +7,6 @@ import AdditionalExtras from "./AdditionalExtras";
 import CloseIcon from "@material-ui/icons/Close";
 import { Icon } from "@material-ui/core";
 
-
 const Cart = props => {
 
     const handleClick = id => {
@@ -40,7 +39,7 @@ const Cart = props => {
                                             <p style={{paddingLeft:"4px"}}>{extra.name}</p>
                                         </div>
                                         <div>
-                                            <p>${extra.price.toFixed(2)}</p>
+                                            <p>+${extra.price.toFixed(2)}</p>
                                         </div>
                                     </div>
                                 ))
