@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM, ADD_EXTRA, REMOVE_EXTRA } from "../actions/extraActions";
+import { ADD_ITEM, REMOVE_ITEM, ADD_EXTRA, REMOVE_EXTRA } from "../actions";
 
 export const initialState = {
     additionalPrice: 0,
@@ -33,7 +33,7 @@ export const initialState = {
     total: 0
   };
 
-export const extraReducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
             let addedItem = state.coffees.find(item => item.id === action.id)

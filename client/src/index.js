@@ -1,14 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 
-import { extraReducer } from "./reducers/extraReducer";
+import App from "./App";
+import { reducer } from "./reducers";
 
-const store = createStore(extraReducer);
+import "./index.css";
+
+
+const store = createStore(reducer);
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

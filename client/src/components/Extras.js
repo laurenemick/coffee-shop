@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addExtra } from "../actions/extraActions";
+import { addExtra } from "../actions";
 
 import AddIcon from "@material-ui/icons/Add";
 import { IconButton } from "@material-ui/core";
 
 const AdditionalExtras = props => {
     return (
-        <div className="additional-extras">
+        <>
             {
                 props.additionalExtras.length ? (
                     <div>
@@ -26,7 +26,7 @@ const AdditionalExtras = props => {
                     <p></p>
                 )
             }
-        </div>
+        </>
     );
 };
 

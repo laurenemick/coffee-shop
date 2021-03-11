@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { removeFromCart, removeExtra } from "../actions/extraActions"
-import AdditionalExtras from "./AdditionalExtras";
+import { removeFromCart, removeExtra } from "../actions"
+import Extras from "./Extras";
 
 import CloseIcon from "@material-ui/icons/Close";
 import { Icon } from "@material-ui/core";
@@ -45,9 +45,9 @@ const Cart = props => {
                                 ))
                             }
                             <div className="item-btn">
-                                <button onClick={() => {handleClick(item.id)}}>Remove</button>
+                                <button className="btn" onClick={() => {handleClick(item.id)}}>Remove</button>
                             </div>
-                            <AdditionalExtras id={item.id} />
+                            <Extras id={item.id} />
                         </div>
                     </div>
                 ))

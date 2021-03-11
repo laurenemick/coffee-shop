@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addToCart } from "../actions/extraActions"
+import { addToCart } from "../actions"
 
 // import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 // import { IconButton } from "@material-ui/core";
