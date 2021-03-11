@@ -9,20 +9,24 @@ const AdditionalExtras = props => {
     return (
         <div className="additional-extras">
             <h4>Extras</h4>
-            {props.additionalExtras.length ? (
-                <div>
-                    {props.additionalExtras.map(extra => (
-                        <div className="extra" onClick={() => props.addExtra(extra)}>
-                            <IconButton>
-                                <AddIcon />
-                            </IconButton>
-                            <p style={{paddingLeft:"4px"}}>{extra.name} (+ ${extra.price})</p>
-                        </div>
-                    ))}
-                </div>
-            ) : (
-                <p></p>
-            )}
+            {
+                props.additionalExtras.length ? (
+                    <div>
+                        {
+                            props.additionalExtras.map(extra => (
+                                <div className="extra" key={extra} onClick={() => props.addExtra(props.id, extra)}>
+                                    <IconButton>
+                                        <AddIcon />
+                                    </IconButton>
+                                    <p style={{paddingLeft:"4px"}}>{extra.name} (+ ${extra.price})</p>
+                                </div>
+                            ))
+                        }
+                    </div>
+                ) : (
+                    <p></p>
+                )
+            }
         </div>
     );
 };

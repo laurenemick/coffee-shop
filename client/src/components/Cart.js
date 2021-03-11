@@ -1,7 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { removeFromCart } from "../actions/extraActions"
+import { removeFromCart, removeExtra } from "../actions/extraActions"
+import AdditionalExtras from "./AdditionalExtras";
+
+import CloseIcon from "@material-ui/icons/Close";
+import { Icon } from "@material-ui/core";
+
 
 const Cart = props => {
 
@@ -25,7 +30,18 @@ const Cart = props => {
                             <p>{item.size}</p>
                             <p>{item.shots}</p>
                             <p>{item.calories}</p>
-                            <button onClick={()=>{handleClick(item.id)}}>Remove</button>
+                            {
+                                item.extras.map(extra => (
+                                    <div className="extra">
+                                        <Icon onClick={() => props.removeExtra(item.id, extra)}>
+                                            <CloseIcon fontSize="small" />
+                                        </Icon>
+                                        <p style={{paddingLeft:"4px"}}>{extra.name}</p>
+                                    </div>
+                                ))
+                            }
+                            <button onClick={() => {handleClick(item.id)}}>Remove</button>
+                            <AdditionalExtras id={item.id} />
                         </div>
                     </div>
                 ))
@@ -42,7 +58,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        removeFromCart: (id) => { dispatch(removeFromCart(id)) }
+        removeFromCart: (id) => { dispatch(removeFromCart(id)) },
+        removeExtra: (id, extra) => { dispatch(removeExtra(id, extra)) }
     };
 };
   

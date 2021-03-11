@@ -49,7 +49,7 @@ export const extraReducer = (state = initialState, action) => {
 
         case REMOVE_ITEM:
             let removedItem = state.addedItems.find(item => item.id === action.id)
-            let newAddedItems = state.addedItems.filter(item => action.id !== item.id)
+            let newAddedItems = state.addedItems.filter(item => item.id !== action.id)
             let billAfterRemove = state.total - removedItem.price
 
             return {
@@ -59,27 +59,26 @@ export const extraReducer = (state = initialState, action) => {
             };
 
         case ADD_EXTRA:
+            // find index of coffee item we want to add extra to
+            let index = state.addedItems.findIndex(item => item.id === action.id)
+            let newArray = [...state.addedItems]
+            newArray[index].extras.push(action.payload)
+    
             return {
                 ...state,
-                coffee: {
-                    ...state.coffee,
-                    extras: [
-                        ...state.coffee.extras, 
-                        action.payload
-                    ],
-                    price: state.coffee.price + action.payload.price
-                },
+                addedItems: newArray
             };
 
         case REMOVE_EXTRA:
+            let removeIndex = state.addedItems.findIndex(item => item.id === action.id)
+            let updatedArray = [...state.addedItems]
+            updatedArray[removeIndex].extras.pop(action.payload)
+    
             return {
                 ...state,
-                coffee: {
-                    ...state.coffee,
-                    extras: [...state.coffee.extras.filter(extra => extra !== action.payload)],
-                    price: state.coffee.price - action.payload.price
-                },
+                addedItems: updatedArray
             };
+
         default:
             return state;
     }
