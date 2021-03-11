@@ -8,7 +8,6 @@ import { IconButton } from "@material-ui/core";
 const AdditionalExtras = props => {
     return (
         <div className="additional-extras">
-            <h4>Extras</h4>
             {
                 props.additionalExtras.length ? (
                     <div>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -141,7 +143,7 @@ html {
   font-size: 62.5%;
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
-  background-color: black;
+  background-color: #fdfafb;
 }
 
 h2 {
@@ -159,22 +161,29 @@ p {
 
 /* Nav */
 .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2%;
 }
 
-.nav-link {
-  color: white;
+.logo {
+  color: black;
   text-decoration: none;
-  padding-right: 4%;
-  font-size: 1.6em;
+  font-size: 2em;
 }
-.nav-link:hover {
-  color: teal;
+.logo:hover {
+  color: #cdadb0;
+}
+
+.cart-icon {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Menu, Cart */
 .item {
-  background-color:honeydew;
+  background-color: #cdadb0;
   border-radius: 6px;
   display: flex;
   justify-content: center;
@@ -183,6 +192,7 @@ p {
 }
 
 .item-img {
+  border: 1px solid #ddd;
   width: 100px;
   height: 100px;
   border-radius: 100px;
@@ -190,7 +200,7 @@ p {
 
 .item-content {
   width: 70%;
-  padding-left: 5%;
+  padding: 1% 0 0 5%;
 }
 
 .item-header {
@@ -207,11 +217,15 @@ p {
   padding-top: 2%;
 }
 
+.additional-extras {
+  margin-top: 2%;
+}
+
 .extra {
   display: flex;
   align-items: center;
-  background-color:honeydew;
   border-radius: 6px;
+  margin-bottom: 1%;
 }
 
 .item-btn {
@@ -223,7 +237,8 @@ p {
   display: flex;
   justify-content: flex-end;
   margin-top: 3%;
-  background-color:honeydew;
+  background-color: rgb(22, 22, 22);
+  color: #fdfafb;
   padding: 2% 8%;
   left: 0;
   bottom: 0;
@@ -233,7 +248,13 @@ p {
 
 @media only screen and (max-width: 600px) {
   .App {
-    margin: 3%;
+    margin: 4%;
+  }
+  .nav {
+    margin-bottom: 4%;
+  }
+  .img-container {
+    margin-top: 1%;
   }
   .item-img {
     width: 80px;
