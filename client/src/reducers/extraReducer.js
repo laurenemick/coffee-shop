@@ -38,6 +38,7 @@ export const extraReducer = (state = initialState, action) => {
         case ADD_ITEM:
             let addedItem = state.coffees.find(item => item.id === action.id)
             let billAfterAdd = state.total + addedItem.price
+
             return {
                 ...state,
                 addedItems: [
@@ -60,23 +61,33 @@ export const extraReducer = (state = initialState, action) => {
 
         case ADD_EXTRA:
             // find index of coffee item we want to add extra to
-            let index = state.addedItems.findIndex(item => item.id === action.id)
+            let index = state.addedItems.findIndex(item => item.id === action.id) 
             let newArray = [...state.addedItems]
-            newArray[index].extras.push(action.payload)
+            let selectedItem = newArray[index] 
+
+            // add extra to extras array and increment price 
+            selectedItem.extras.push(action.payload) 
+            let billAfterAddExtra = state.total + action.payload.price
     
             return {
                 ...state,
-                addedItems: newArray
+                addedItems: newArray,
+                total: billAfterAddExtra
             };
 
         case REMOVE_EXTRA:
+            // find index of coffee item we want to remove extra from
             let removeIndex = state.addedItems.findIndex(item => item.id === action.id)
             let updatedArray = [...state.addedItems]
+
+            // remove extra from extras array and decrement price 
             updatedArray[removeIndex].extras.pop(action.payload)
+            let billAfterRemoveExtra = state.total - action.payload.price
     
             return {
                 ...state,
-                addedItems: updatedArray
+                addedItems: updatedArray,
+                total: billAfterRemoveExtra
             };
 
         default:

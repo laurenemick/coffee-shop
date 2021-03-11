@@ -46,6 +46,7 @@ const Cart = props => {
                     </div>
                 ))
             }
+            <h1 style={{color:"white"}}>Total: {props.total}</h1>
         </div>
     );
 };
@@ -53,6 +54,7 @@ const Cart = props => {
 const mapStateToProps = state => {
     return {
         addedItems: state.addedItems,
+        total: state.total
     };
 };
 
