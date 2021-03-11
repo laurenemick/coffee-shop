@@ -25,7 +25,9 @@ const Menu = props => {
                             <p>{item.size}</p>
                             <p>{item.shots}</p>
                             <p>{item.calories}</p>
-                            <button onClick={()=>{handleClick(item.id)}}>Add</button>
+                            <div className="item-btn">
+                                <button onClick={() => {handleClick(item.id)}}>Add</button>
+                            </div>
                         </div>
                     </div>
                 ))

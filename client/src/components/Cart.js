@@ -40,18 +40,20 @@ const Cart = props => {
                                             <p style={{paddingLeft:"4px"}}>{extra.name}</p>
                                         </div>
                                         <div>
-                                            <p>${extra.price}</p>
+                                            <p>${extra.price.toFixed(2)}</p>
                                         </div>
                                     </div>
                                 ))
                             }
-                            <button onClick={() => {handleClick(item.id)}}>Remove</button>
+                            <div className="item-btn">
+                                <button onClick={() => {handleClick(item.id)}}>Remove</button>
+                            </div>
                             <AdditionalExtras id={item.id} />
                         </div>
                     </div>
                 ))
             }
-            <h1 style={{color:"white"}}>Total: {props.total}</h1>
+            <h4 className="total">Total: ${props.total.toFixed(2)}</h4>
         </div>
     );
 };

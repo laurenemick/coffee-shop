@@ -9,8 +9,10 @@ function App() {
   return (
       <Router>
         <div className="App">
-          <Link style={{color:"white"}} to="/">Menu</Link>
-          <Link style={{color:"white"}} to="/cart">Cart</Link>
+          <div className="nav">
+            <Link className="nav-link" to="/">Menu</Link>
+            <Link className="nav-link" to="/cart">Cart</Link>
+          </div>
 
           <Route exact path="/" component={Menu} />
           <Route path="/cart" component={Cart} />
