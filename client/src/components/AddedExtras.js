@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { removeExtra } from "../actions/extraActions";
 
 import CloseIcon from "@material-ui/icons/Close";
-import { IconButton, Icon } from "@material-ui/core";
+import { Icon } from "@material-ui/core";
 
 const AddedExtras = props => {
 

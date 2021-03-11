@@ -4,8 +4,8 @@ import AddedExtras from "./AddedExtras";
 
 const MenuItem = props => {
     return (
-      <div className="item">
-        <div className="img-container" >
+      <div>
+        {/* <div className="img-container" >
           <img className="item-img" src={props.coffee.image} alt={props.coffee.name} />
         </div>
         <div className="item-content">
@@ -17,7 +17,7 @@ const MenuItem = props => {
           <p>{props.coffee.shots}</p>
           <p>{props.coffee.calories}</p>
           <AddedExtras />
-        </div>
+        </div> */}
       </div>
     );
 };
