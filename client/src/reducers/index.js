@@ -30,7 +30,8 @@ export const initialState = {
         { id: 3, name: 'Specialty Milk', price: .80 }
     ],
     addedItems: [],
-    total: 0
+    total: 0,
+    quantity: 0
   };
 
 export const reducer = (state = initialState, action) => {
@@ -45,7 +46,8 @@ export const reducer = (state = initialState, action) => {
                     ...state.addedItems,
                     addedItem
                 ],
-                total: billAfterAdd
+                total: billAfterAdd,
+                quantity: state.quantity += 1
             };
 
         case REMOVE_ITEM:
@@ -56,7 +58,8 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 addedItems: newAddedItems,
-                total: billAfterRemove
+                total: billAfterRemove,
+                quantity: state.quantity -= 1
             };
 
         case ADD_EXTRA:

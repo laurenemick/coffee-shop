@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
@@ -31,7 +32,7 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
-function App() {
+const App = props => {
   return (
       <Router>
         <div className="App">
@@ -39,7 +40,7 @@ function App() {
             <Link className="logo" to="/">Café d'abord</Link>
             <Link className="cart-icon" to="/cart">
               <Icon aria-label="cart">
-                <StyledBadge badgeContent={4} color="primary">
+                <StyledBadge badgeContent={props.quantity} color="primary">
                   <LocalMallIcon fontSize="large" />
                 </StyledBadge>
               </Icon>
@@ -53,4 +54,12 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    quantity: state.quantity
+  };
+};
+
+export default connect(
+  mapStateToProps
+)(App);
