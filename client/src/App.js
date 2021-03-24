@@ -9,11 +9,14 @@ import Badge from "@material-ui/core/Badge";
 import { withStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/IconButton";
 import LocalMallIcon from '@material-ui/icons/LocalMall';
+
 import "./App.css";
 
 /* 
   TO DO:
-  - Quantity and dynamic cart icon 
+  - fix duplicates in cart
+  - choose diff size in cart
+  - Search bar
   - UI for empty cart
   - + / - icons for add/remove
   - Modal for extras
@@ -33,6 +36,7 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 const App = props => {
+
   return (
       <Router>
         <div className="App">

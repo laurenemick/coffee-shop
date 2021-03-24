@@ -9,14 +9,14 @@ import { Icon } from "@material-ui/core";
 
 const Cart = props => {
 
-    const handleClick = id => {
-        props.removeFromCart(id); 
+    const handleClick = index => {
+        props.removeFromCart(index); 
     }
 
     return (
         <div className="cart">
             {
-                props.addedItems.map(item => (
+                props.addedItems.map((item, index) => (
                     <div className="item" key={item.id}>
                         <div className="img-container" >
                             <img className="item-img" src={item.image} alt={item.name} />
@@ -45,8 +45,9 @@ const Cart = props => {
                                 ))
                             }
                             <div className="item-btn">
-                                <button className="btn" onClick={() => {handleClick(item.id)}}>Remove</button>
+                                <button className="btn" onClick={() => {handleClick(index)}}>Remove</button>
                             </div>
+                
                             <Extras id={item.id} />
                         </div>
                     </div>
@@ -60,14 +61,14 @@ const Cart = props => {
 const mapStateToProps = state => {
     return {
         addedItems: state.addedItems,
-        total: state.total
+        total: state.total,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        removeFromCart: (id) => { dispatch(removeFromCart(id)) },
-        removeExtra: (id, extra) => { dispatch(removeExtra(id, extra)) }
+        removeFromCart: (index) => { dispatch(removeFromCart(index)) },
+        removeExtra: (index, extra) => { dispatch(removeExtra(index, extra)) },
     };
 };
   

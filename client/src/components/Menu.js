@@ -45,7 +45,7 @@ const Menu = props => {
 
 const mapStateToProps = state => {
     return {
-      coffees: state.coffees,
+      coffees: state.coffees
     };
 };
 

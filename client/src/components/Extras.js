@@ -36,7 +36,12 @@ const mapStateToProps = state => {
     };
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return{
+        addExtra: (id, extra) => { dispatch(addExtra(id, extra)) },
+    };
+};
 export default connect(
     mapStateToProps, 
-    { addExtra } 
+    mapDispatchToProps 
 )(AdditionalExtras);

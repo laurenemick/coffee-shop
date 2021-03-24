@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { ADD_ITEM, REMOVE_ITEM, ADD_EXTRA, REMOVE_EXTRA } from "../actions";
 
 export const initialState = {
@@ -37,8 +38,10 @@ export const initialState = {
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_ITEM:
-            let addedItem = state.coffees.find(item => item.id === action.id)
-            let billAfterAdd = state.total + addedItem.price
+            const addedItem = state.coffees.find(item => item.id === action.id)
+            const billAfterAdd = state.total + addedItem.price
+
+            addedItem.id = uuidv4
 
             return {
                 ...state,
@@ -51,9 +54,9 @@ export const reducer = (state = initialState, action) => {
             };
 
         case REMOVE_ITEM:
-            let removedItem = state.addedItems.find(item => item.id === action.id)
-            let newAddedItems = state.addedItems.filter(item => item.id !== action.id)
-            let billAfterRemove = state.total - removedItem.price
+            const removedItem = state.addedItems[action.index]
+            const newAddedItems = state.addedItems.splice(action.index, 1)
+            const billAfterRemove = state.total - removedItem.price
 
             return {
                 ...state,
@@ -63,29 +66,30 @@ export const reducer = (state = initialState, action) => {
             };
 
         case ADD_EXTRA:
-            // find index of coffee item we want to add extra to
-            let index = state.addedItems.findIndex(item => item.id === action.id) 
-            let newArray = [...state.addedItems]
-            let selectedItem = newArray[index] 
+            let addIndex = state.addedItems.findIndex(item => item.id === action.id)
+            const updated = [...state.addedItems]
 
-            // add extra to extras array and increment price 
-            selectedItem.extras.push(action.payload) 
-            let billAfterAddExtra = state.total + action.payload.price
+            updated[addIndex].extras.push(action.extra) 
+
+            // const updated = state.addedItems.splice(action.index, 1, selectedItem)
+            // console.log("copy:", copy, "selected:", selectedItem)
+
+            const billAfterAddExtra = state.total + action.extra.price
     
             return {
                 ...state,
-                addedItems: newArray,
+                addedItems: updated,
                 total: billAfterAddExtra
             };
 
         case REMOVE_EXTRA:
             // find index of coffee item we want to remove extra from
-            let removeIndex = state.addedItems.findIndex(item => item.id === action.id)
-            let updatedArray = [...state.addedItems]
+            const removeIndex = state.addedItems.findIndex(item => item.id === action.id)
+            const updatedArray = [...state.addedItems]
 
             // remove extra from extras array and decrement price 
-            updatedArray[removeIndex].extras.pop(action.payload)
-            let billAfterRemoveExtra = state.total - action.payload.price
+            updatedArray[removeIndex].extras.pop(action.extra)
+            const billAfterRemoveExtra = state.total - action.extra.price
     
             return {
                 ...state,
