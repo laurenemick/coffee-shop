@@ -11,10 +11,10 @@ export const removeFromCart = index => {
     return { type: REMOVE_ITEM, index};
 };
 
-export const addExtra = (id, extra) => {
-    return { type: ADD_EXTRA, id, extra};
+export const addExtra = (index, extra) => {
+    return { type: ADD_EXTRA, index, extra};
 };
 
-export const removeExtra = (id, extra) => {
-    return { type: REMOVE_EXTRA, id, extra};
+export const removeExtra = (index, extraIndex, extra) => {
+    return { type: REMOVE_EXTRA, index, extraIndex, extra};
 };

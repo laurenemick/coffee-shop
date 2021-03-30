@@ -13,7 +13,7 @@ const AdditionalExtras = props => {
                     <div>
                         {
                             props.additionalExtras.map(extra => (
-                                <div className="extra" key={extra.id} onClick={() => props.addExtra(props.id, extra)}>
+                                <div className="extra" key={extra.id} onClick={() => props.addExtra(props.index, extra)}>
                                     <IconButton>
                                         <AddIcon />
                                     </IconButton>
@@ -38,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        addExtra: (id, extra) => { dispatch(addExtra(id, extra)) },
+        addExtra: (index, extra) => { dispatch(addExtra(index, extra)) },
     };
 };
 export default connect(

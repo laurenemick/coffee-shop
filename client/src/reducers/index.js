@@ -41,13 +41,11 @@ export const reducer = (state = initialState, action) => {
             const addedItem = state.coffees.find(item => item.id === action.id)
             const billAfterAdd = state.total + addedItem.price
 
-            addedItem.id = uuidv4
-
             return {
                 ...state,
                 addedItems: [
                     ...state.addedItems,
-                    addedItem
+                    addedItem,
                 ],
                 total: billAfterAdd,
                 quantity: state.quantity += 1
@@ -66,35 +64,43 @@ export const reducer = (state = initialState, action) => {
             };
 
         case ADD_EXTRA:
-            let addIndex = state.addedItems.findIndex(item => item.id === action.id)
-            const updated = [...state.addedItems]
-
-            updated[addIndex].extras.push(action.extra) 
-
-            // const updated = state.addedItems.splice(action.index, 1, selectedItem)
-            // console.log("copy:", copy, "selected:", selectedItem)
-
-            const billAfterAddExtra = state.total + action.extra.price
+            const addExtraUpdatedList = state.addedItems.map((item, i) => {
+                if (i === action.index) {
+                    return {
+                        ...state.addedItems[i],
+                        extras: [...state.addedItems[i].extras, action.extra],
+                    }
+                } else {
+                    return item
+                }
+            })
+            const totalAfterAddExtra = state.total + action.extra.price
     
             return {
                 ...state,
-                addedItems: updated,
-                total: billAfterAddExtra
+                addedItems: [...addExtraUpdatedList],
+                total: totalAfterAddExtra
             };
 
         case REMOVE_EXTRA:
-            // find index of coffee item we want to remove extra from
-            const removeIndex = state.addedItems.findIndex(item => item.id === action.id)
-            const updatedArray = [...state.addedItems]
-
-            // remove extra from extras array and decrement price 
-            updatedArray[removeIndex].extras.pop(action.extra)
-            const billAfterRemoveExtra = state.total - action.extra.price
+            const targetItem = state.addedItems[action.index]
+            const updatedExtrasArray = targetItem.extras.filter((extra,exIndex) => exIndex !== action.extraIndex)
+            const removeExtraUpdatedList = state.addedItems.map((item, i) => {
+                if (i === action.index) {
+                    return {
+                        ...state.addedItems[i],
+                        extras: [...updatedExtrasArray],
+                    }
+                } else {
+                    return item
+                }
+            })
+            const totalAfterRemoveExtra = state.total - action.extra.price
     
             return {
                 ...state,
-                addedItems: updatedArray,
-                total: billAfterRemoveExtra
+                addedItems: [...removeExtraUpdatedList],
+                total: totalAfterRemoveExtra
             };
 
         default:

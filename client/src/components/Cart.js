@@ -30,10 +30,10 @@ const Cart = props => {
                             <p>{item.shots}</p>
                             <p>{item.calories}</p>
                             {
-                                item.extras.map(extra => (
+                                item.extras.map((extra, extraIndex) => (
                                     <div className="added-extra">
                                         <div className="extra">
-                                            <Icon onClick={() => props.removeExtra(item.id, extra)}>
+                                            <Icon onClick={() => props.removeExtra(index, extraIndex, extra)}>
                                                 <CloseIcon fontSize="small" />
                                             </Icon>
                                             <p style={{paddingLeft:"4px"}}>{extra.name}</p>
@@ -48,7 +48,7 @@ const Cart = props => {
                                 <button className="btn" onClick={() => {handleClick(index)}}>Remove</button>
                             </div>
                 
-                            <Extras id={item.id} />
+                            <Extras index={index} />
                         </div>
                     </div>
                 ))
@@ -68,7 +68,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
     return{
         removeFromCart: (index) => { dispatch(removeFromCart(index)) },
-        removeExtra: (index, extra) => { dispatch(removeExtra(index, extra)) },
+        removeExtra: (index, extraIndex, extra) => { dispatch(removeExtra(index, extraIndex, extra)) },
     };
 };
   
