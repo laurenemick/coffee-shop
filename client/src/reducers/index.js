@@ -1,8 +1,6 @@
-import { v4 as uuidv4 } from 'uuid';
 import { ADD_ITEM, REMOVE_ITEM, ADD_EXTRA, REMOVE_EXTRA } from "../actions";
 
 export const initialState = {
-    additionalPrice: 0,
     coffees: [
         {
             id: 1,
@@ -12,7 +10,8 @@ export const initialState = {
             shots: '2 Shots',
             calories: '190 Calories',
             image:'https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
-            extras: []
+            extras: [],
+            extrasPrice: 0,
         },
         {
             id: 2,
@@ -22,7 +21,8 @@ export const initialState = {
             shots: '2 Shots',
             calories: '190 Calories',
             image:'https://cdn.pixabay.com/photo/2021/02/03/12/00/coffee-5977682_1280.jpg',
-            extras: []
+            extras: [],
+            extrasPrice: 0,
         },
     ],
     additionalExtras: [
@@ -53,12 +53,12 @@ export const reducer = (state = initialState, action) => {
 
         case REMOVE_ITEM:
             const removedItem = state.addedItems[action.index]
-            const newAddedItems = state.addedItems.splice(action.index, 1)
-            const billAfterRemove = state.total - removedItem.price
+            state.addedItems.splice(action.index, 1)
+
+            const billAfterRemove = state.total - (removedItem.price + removedItem.extrasPrice)
 
             return {
                 ...state,
-                addedItems: newAddedItems,
                 total: billAfterRemove,
                 quantity: state.quantity -= 1
             };
@@ -69,6 +69,7 @@ export const reducer = (state = initialState, action) => {
                     return {
                         ...state.addedItems[i],
                         extras: [...state.addedItems[i].extras, action.extra],
+                        extrasPrice: state.addedItems[i].extrasPrice + action.extra.price
                     }
                 } else {
                     return item
@@ -85,11 +86,13 @@ export const reducer = (state = initialState, action) => {
         case REMOVE_EXTRA:
             const targetItem = state.addedItems[action.index]
             const updatedExtrasArray = targetItem.extras.filter((extra,exIndex) => exIndex !== action.extraIndex)
+
             const removeExtraUpdatedList = state.addedItems.map((item, i) => {
                 if (i === action.index) {
                     return {
                         ...state.addedItems[i],
                         extras: [...updatedExtrasArray],
+                        extrasPrice: state.addedItems[i].extrasPrice - action.extra.price
                     }
                 } else {
                     return item

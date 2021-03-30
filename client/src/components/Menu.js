@@ -16,7 +16,7 @@ const Menu = props => {
         <div className="menu-items">
             {
                 props.coffees.map(item => (
-                    <div className="item" key={item.id}>
+                    <div className="item item-container" style={{paddingTop:"4%"}} key={item.id}>
                         <div className="img-container" >
                             <img className="item-img" src={item.image} alt={item.name} />
                         </div>
