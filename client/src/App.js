@@ -14,14 +14,11 @@ import "./App.css";
 
 /* 
   TO DO:
-  - fix duplicates in cart
-  - choose diff size in cart
-  - Search bar
-  - UI for empty cart
-  - + / - icons for add/remove
-  - Modal for extras
-  - Breakdown reducer/action into more files 
+  - Advance extras (+/- for adjusting shots, diff sizes, add syrup flavors)
+  - + to duplicate item in cart
+  - Add search bar
   - Create backend? or integrate api
+  - Breakdown reducer/action into more files 
 */
 
 const StyledBadge = withStyles((theme) => ({
