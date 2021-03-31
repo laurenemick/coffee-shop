@@ -3,13 +3,8 @@ import { connect } from "react-redux";
 import { addExtra } from "../actions";
 import { v4 as uuidv4 } from 'uuid';
 
-import AddIcon from "@material-ui/icons/Add";
-import { IconButton } from "@material-ui/core";
-import Divider from '@material-ui/core/Divider';
-import CloseIcon from "@material-ui/icons/Close";
-import Dialog from '@material-ui/core/Dialog';
-import Toolbar from '@material-ui/core/Toolbar';
-import Slide from '@material-ui/core/Slide';
+import { Add, Close } from "@material-ui/icons";
+import { IconButton, Divider, Dialog, Toolbar, Slide } from "@material-ui/core";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -30,7 +25,7 @@ const AdditionalExtras = props => {
                 <div className="toolbar">
                     <Toolbar style={{display:"flex", justifyContent:"flex-end"}}>
                         <IconButton edge="start" color="inherit" onClick={() => setOpen(false)} aria-label="close">
-                            <CloseIcon style={{color:"#fdfafb"}}/>
+                            <Close style={{color:"#fdfafb"}}/>
                         </IconButton>
                     </Toolbar>
                 </div>
@@ -39,7 +34,7 @@ const AdditionalExtras = props => {
                         <>
                         <div className="extra" key={uuidv4()} onClick={() => props.addExtra(props.index, extra)}>
                             <IconButton>
-                                <AddIcon />
+                                <Add />
                             </IconButton>
                             <p style={{paddingLeft:"4px"}}>{extra.name} (+ ${extra.price})</p>
                         </div>

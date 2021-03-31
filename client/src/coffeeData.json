@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "price": 4.45,
+        "name": "Iced Cafe Latte",
+        "size": "Grande 16 fl oz",
+        "shots": "2 Shots",
+        "calories": "190 Calories",
+        "image":"https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80",
+        "extras": [],
+        "extrasPrice": 0
+    },
+    {
+        "id": 2,
+        "price": 4.45,
+        "name": "Cafe Latte",
+        "size": "Grande 16 fl oz",
+        "shots": "2 Shots",
+        "calories": "190 Calories",
+        "image":"https://cdn.pixabay.com/photo/2021/02/03/12/00/coffee-5977682_1280.jpg",
+        "extras": [],
+        "extrasPrice": 0
+    }
+]

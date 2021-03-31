@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 import { removeFromCart, removeExtra } from "../actions"
 import Extras from "./Extras";
@@ -53,30 +53,6 @@ const Cart = props => {
                                     ))
                                 }
                                 <Extras index={index} />
-                                {/* <div>
-                                <div className="item-btn">
-                                    <button className="btn" onClick={() => setOpen(true)}>
-                                        Add Extras
-                                    </button>
-                                </div>
-
-                                <Dialog fullScreen open={open} onClose={() => setOpen(false)} TransitionComponent={Transition}>
-                                    <div className="toolbar">
-                                        <Toolbar style={{display:"flex", justifyContent:"flex-end"}}>
-                                            <IconButton edge="start" color="inherit" onClick={() => setOpen(false)} aria-label="close">
-                                                <CloseIcon style={{color:"#fdfafb"}}/>
-                                            </IconButton>
-                                        </Toolbar>
-                                    </div>
-                                    <Extras index={index} />
-
-                                    <div className="update-btn">
-                                        <button className="btn-2" onClick={() => setOpen(false)}>
-                                        Update Item
-                                        </button>
-                                    </div>
-                                </Dialog>
-                                </div> */}
                             </div> {/* End of item-content */}
                         </div> {/* End of item-container */}
                     </div>

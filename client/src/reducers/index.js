@@ -1,30 +1,33 @@
-import { ADD_ITEM, REMOVE_ITEM, ADD_EXTRA, REMOVE_EXTRA } from "../actions";
+import { REQUEST_COFFEE_DATA, RECEIVE_COFFEE_DATA, ADD_ITEM, REMOVE_ITEM, ADD_EXTRA, REMOVE_EXTRA } from "../actions";
 
 export const initialState = {
     coffees: [
-        {
-            id: 1,
-            price: 4.45,
-            name: 'Iced Cafe Latte',
-            size: 'Grande 16 fl oz',
-            shots: '2 Shots',
-            calories: '190 Calories',
-            image:'https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
-            extras: [],
-            extrasPrice: 0,
-        },
-        {
-            id: 2,
-            price: 4.45,
-            name: 'Cafe Latte',
-            size: 'Grande 16 fl oz',
-            shots: '2 Shots',
-            calories: '190 Calories',
-            image:'https://cdn.pixabay.com/photo/2021/02/03/12/00/coffee-5977682_1280.jpg',
-            extras: [],
-            extrasPrice: 0,
-        },
+        // {
+        //     id: 1,
+        //     price: 4.45,
+        //     name: 'Iced Cafe Latte',
+        //     size: 'Grande 16 fl oz',
+        //     shots: '2 Shots',
+        //     calories: '190 Calories',
+        //     image:'https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
+        //     extras: [],
+        //     extrasPrice: 0,
+        // },
+        // {
+        //     id: 2,
+        //     price: 4.45,
+        //     name: 'Cafe Latte',
+        //     size: 'Grande 16 fl oz',
+        //     shots: '2 Shots',
+        //     calories: '190 Calories',
+        //     image:'https://cdn.pixabay.com/photo/2021/02/03/12/00/coffee-5977682_1280.jpg',
+        //     extras: [],
+        //     extrasPrice: 0,
+        // },
     ],
+    isLoading: false,
+    isError: false,
+    errorMsg: "",
     additionalExtras: [
         { id: 1, name: 'Shot', price: 1.00 },
         { id: 2, name: 'Syrup', price: .50 },
@@ -37,6 +40,23 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case REQUEST_COFFEE_DATA:
+            return {
+              ...state,
+              isLoading: true,
+              isError: false,
+              errorMsg: ""
+            };
+
+        case RECEIVE_COFFEE_DATA:
+            return {
+                ...state,
+                coffees: action.coffees,
+                isLoading: false,
+                isError: action.isError,
+                errorMsg: action.errorMsg
+            };
+
         case ADD_ITEM:
             const addedItem = state.coffees.find(item => item.id === action.id)
             const billAfterAdd = state.total + addedItem.price

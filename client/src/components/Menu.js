@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 
 import { addToCart } from "../actions"
 
@@ -7,6 +7,9 @@ import { addToCart } from "../actions"
 // import { IconButton } from "@material-ui/core";
 
 const Menu = props => {
+    const { coffees, isError, isLoading, errorMsg } = useSelector(
+        state => state
+    );
 
     const handleClick = id => {
         props.addToCart(id); 
@@ -14,8 +17,10 @@ const Menu = props => {
 
     return (
         <div className="menu-items">
-            {
-                props.coffees.map(item => (
+            {isLoading && <div>Data loading...</div>}
+            {isError && <div>Error loading data: {errorMsg}</div>}
+            {!isLoading && !isError && (
+                coffees.map(item => (
                     <div className="item item-container" style={{paddingTop:"4%"}} key={item.id}>
                         <div className="img-container" >
                             <img className="item-img" src={item.image} alt={item.name} />
@@ -37,8 +42,7 @@ const Menu = props => {
                         </div>
                     </div>
                 ))
-            }
-
+            )}
         </div>
     );
 };
