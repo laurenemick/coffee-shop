@@ -10,13 +10,14 @@ import { withStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/IconButton";
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 
+import SearchBar from "./components/SearchBar";
+
 import "./App.css";
 
 /* 
   TO DO:
   - Advance extras (+/- for adjusting shots, diff sizes, add syrup flavors)
   - + to duplicate item in cart
-  - Add search bar
   - Create backend? or integrate api
   - Breakdown reducer/action into more files 
 */
@@ -38,7 +39,10 @@ const App = props => {
       <Router>
         <div className="App">
           <div className="nav">
-            <Link className="logo" to="/">Café d'abord</Link>
+            <div className="nav-left">
+              <Link className="logo" to="/">Café d'abord</Link>
+              <SearchBar />
+            </div>
             <Link className="cart-icon" to="/cart">
               <Icon aria-label="cart">
                 <StyledBadge badgeContent={props.quantity} color="primary">

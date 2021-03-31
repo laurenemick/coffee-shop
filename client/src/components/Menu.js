@@ -1,19 +1,26 @@
-import React from "react";
-import { connect, useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { addToCart } from "../actions"
+import { addToCart, addCoffees } from "../actions";
+import coffeeData from "../coffeeData.json"
 
 // import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 // import { IconButton } from "@material-ui/core";
 
-const Menu = props => {
+const Menu = () => {
+    const dispatch = useDispatch();
     const { coffees, isError, isLoading, errorMsg } = useSelector(
         state => state
     );
 
     const handleClick = id => {
-        props.addToCart(id); 
+        dispatch(addToCart(id)); 
     }
+
+    // load json data in app state
+    useEffect(() => {
+        dispatch(addCoffees(coffeeData));
+    }, []);
 
     return (
         <div className="menu-items">
@@ -46,20 +53,5 @@ const Menu = props => {
         </div>
     );
 };
-
-const mapStateToProps = state => {
-    return {
-      coffees: state.coffees
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return{
-        addToCart: (id) => { dispatch(addToCart(id)) }
-    };
-};
-  
-export default connect(
-    mapStateToProps, 
-    mapDispatchToProps
-)(Menu);
+ 
+export default Menu;

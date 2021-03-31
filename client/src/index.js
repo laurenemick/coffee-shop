@@ -4,13 +4,14 @@ import reportWebVitals from "./reportWebVitals";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunkMiddleware from "redux-thunk";
+import logger from "redux-logger";
 
 import App from "./App";
 import { reducer } from "./reducers";
 
 import "./index.css";
 
-const store = createStore(reducer, applyMiddleware(thunkMiddleware));
+const store = createStore(reducer, applyMiddleware(thunkMiddleware, logger));
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(

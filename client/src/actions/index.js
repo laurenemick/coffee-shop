@@ -2,6 +2,7 @@
 
 export const REQUEST_COFFEE_DATA = "REQUEST_COFFEE_DATA";
 export const RECEIVE_COFFEE_DATA = "RECEIVE_COFFEE_DATA";
+export const SEARCH = "SEARCH";
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
 export const ADD_EXTRA = "ADD_EXTRA";
@@ -28,6 +29,10 @@ export const addCoffees = coffees => async dispatch => {
             errorMsg: e
         });
     }
+};
+
+export const search = value => {
+    return { type: SEARCH, value};
 };
 
 export const addToCart = id => {
