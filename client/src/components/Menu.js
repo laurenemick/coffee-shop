@@ -39,7 +39,11 @@ const Menu = () => {
                             </div>
                             <p>{item.size}</p>
                             <p>{item.shots}</p>
-                            <p>{item.calories}</p>
+                            {item.calories !== "none" ? (
+                                <p>{item.calories}</p>
+                            ) : (
+                                <p />
+                            )}
                             <div className="item-btn">
                                 <button className="btn" onClick={() => {handleClick(item.id)}}>Add</button>
                                 {/* <IconButton onClick={() => {handleClick(item.id)}}>

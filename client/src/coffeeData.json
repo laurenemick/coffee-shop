@@ -20,5 +20,49 @@
         "image":"https://cdn.pixabay.com/photo/2021/02/03/12/00/coffee-5977682_1280.jpg",
         "extras": [],
         "extrasPrice": 0
+    },
+    {
+        "id": 3,
+        "price": 3.75,
+        "name": "Caffe Americano",
+        "size": "Grande 16 fl oz",
+        "shots": "3 Shots",
+        "calories": "15 Calories",
+        "image":"https://images.unsplash.com/photo-1528719001649-9f44634e34b0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1049&q=80",
+        "extras": [],
+        "extrasPrice": 0
+    },
+    {
+        "id": 4,
+        "price": 4.95,
+        "name": "Cinnamon Dolce Latte",
+        "size": "Grande 16 fl oz",
+        "shots": "2 Shots",
+        "calories": "340 Calories",
+        "image":"https://images.unsplash.com/photo-1569358731637-7a6c762adf28?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80",
+        "extras": [],
+        "extrasPrice": 0
+    },
+    {
+        "id": 5,
+        "price": 4.65,
+        "name": "Matcha Green Tea Latte",
+        "size": "Grande 16 fl oz",
+        "shots": "3 Scoop(s) Matcha Powder",
+        "calories": "240 Calories",
+        "image":"https://images.unsplash.com/photo-1515823064-d6e0c04616a7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80",
+        "extras": [],
+        "extrasPrice": 0
+    },
+    {
+        "id": 6,
+        "price": 2.95,
+        "name": "Chai Tea",
+        "size": "Grande 16 fl oz",
+        "shots": "2 Tea Bag(s)",
+        "calories": "none",
+        "image":"https://images.unsplash.com/photo-1597318181302-0466233a784e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80",
+        "extras": [],
+        "extrasPrice": 0
     }
 ]
