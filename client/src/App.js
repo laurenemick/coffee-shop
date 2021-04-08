@@ -1,16 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Route, Switch, Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Menu from "./components/Menu";
 import Cart from "./components/Cart";
+import SearchBar from "./components/SearchBar";
 
 import Badge from "@material-ui/core/Badge";
 import { withStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/IconButton";
 import LocalMallIcon from '@material-ui/icons/LocalMall';
-
-import SearchBar from "./components/SearchBar";
 
 import "./App.css";
 
@@ -34,14 +33,15 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 const App = props => {
+  const locationObj = useLocation()
 
   return (
-      <Router>
+      <>
         <div className="App">
           <div className="nav">
             <div className="nav-left">
               <Link className="logo" to="/">Café d'abord</Link>
-              <SearchBar />
+              {locationObj.pathname === '/' ? <SearchBar /> : null}
             </div>
             <Link className="cart-icon" to="/cart">
               <Icon aria-label="cart">
@@ -51,11 +51,13 @@ const App = props => {
               </Icon>
             </Link>
           </div>
-
-          <Route exact path="/" component={Menu} />
-          <Route path="/cart" component={Cart} />
+          
+          <Switch>
+            <Route exact path="/" component={Menu} />
+            <Route path="/cart" component={Cart} />
+          </Switch>
         </div>
-      </Router>
+      </>
   );
 }
 

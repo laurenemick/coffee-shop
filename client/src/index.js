@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
@@ -16,7 +17,9 @@ const store = createStore(reducer, applyMiddleware(thunkMiddleware, logger));
 const rootElement = document.getElementById('root');
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <App />
+        </Router>
     </Provider>, 
     rootElement
 );

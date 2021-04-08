@@ -8,9 +8,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 
 /* 
     TO DO:
-        - Hide search bar in cart 
         - Change underline color
-        - Mobile friendly
         - Add Filters
 */
 
@@ -28,7 +26,7 @@ const SearchBar = () => {
         <div className="seach-bar">
             <Autocomplete
                 className= "search-field"
-                style={{ width:200 }}
+                style={{ width:150 }}
                 options={coffees.map((option) => option.name)}
                 onInputChange={searchInput}
                 renderInput={(params) => (
